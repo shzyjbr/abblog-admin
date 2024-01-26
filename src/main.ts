@@ -1,5 +1,11 @@
 import { createApp } from 'vue';
-import './style.css';
+import '@/styles/index.scss';
 import App from './App.vue';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+// 路由
+import router from '@/router';
+app.use(router);
+
+app.mount('#app');

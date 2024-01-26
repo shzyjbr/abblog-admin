@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "dev": "vite --mode dev",
+    "prod": "vite --mode prod",
+    "build": "vue-tsc && vite build --mode prod",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
@@ -19,6 +20,7 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
+    "@types/node": "^20.11.7",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@vitejs/plugin-vue": "^4.5.2",
     "eslint": "^8.56.0",
@@ -30,6 +32,7 @@
     "postcss-html": "^1.6.0",
     "postcss-less": "^6.0.0",
     "prettier": "3.2.4",
+    "sass": "^1.70.0",
     "stylelint": "^16.2.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recommended-less": "^3.0.1",
@@ -37,7 +40,9 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-less": "^3.0.1",
     "stylelint-order": "^6.0.4",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2",
+    "unplugin-auto-import": "^0.17.5",
     "vite": "^5.0.8",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^1.8.25"
