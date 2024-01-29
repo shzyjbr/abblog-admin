@@ -46,7 +46,6 @@
     "stylelint-order": "^6.0.4",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2",
-    "unplugin-auto-import": "^0.17.5",
     "vite": "^5.0.8",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^1.8.25"

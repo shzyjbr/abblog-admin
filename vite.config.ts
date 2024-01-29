@@ -1,22 +1,16 @@
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import eslint from 'vite-plugin-eslint';
-import AutoImport from 'unplugin-auto-import/vite';
-import path from 'path';
+import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件
   const env = loadEnv(mode, process.cwd());
-  console.log(env);
   return {
     plugins: [
       vue(),
-      eslint({ lintOnStart: true, cache: false }), // 项目运行时进行eslint检查
-      // 解决 `import { ref , reactive ..... } from 'vue'` 大量引入的问题
-      AutoImport({
-        imports: ['vue', 'vue-router'],
-      }),
+      eslint({ lintOnStart: false, cache: false }), // 项目运行时进行eslint检查
     ],
     resolve: {
       alias: {
