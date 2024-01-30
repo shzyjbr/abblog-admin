@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <el-menu router :default-active="$route.meta.fullPath" :collapse="false" :unique-opened="false" @select="handleSelect">
     <el-scrollbar>
       <sidebar-item :router-list="routerList" />
@@ -31,4 +31,4 @@ function handleSelect(index, indexPath, item, routeResult) {
 .el-menu {
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
 }
-</style>
+</style> -->

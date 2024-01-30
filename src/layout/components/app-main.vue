@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <el-scrollbar>
     <div :style="{ height: height, width: width }">
       <!-- 路由视图 -->
@@ -18,4 +18,4 @@ defineProps({
   },
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="app">
     <el-scrollbar>
       <base-right-click class="flex">
@@ -86,4 +86,4 @@ a {
   text-decoration: none; // 去掉下换线
   color: black; //文字颜色更改
 }
-</style>
+</style> -->

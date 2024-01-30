@@ -23,8 +23,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 import { createPinia } from 'pinia';
 const pinia = createPinia();
 app.use(pinia);
-// store
-import store from '@/store';
-app.config.globalProperties.$store = store;
 
 app.mount('#app');

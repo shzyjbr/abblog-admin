@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div v-for="item in routerList" :key="item.path">
     <!-- 一级菜单 -->
     <el-menu-item v-if="(item.meta.isShow && item.children.length === 0) || (item.children && item.children.length === 1 && !item.children[0].meta.isShow)" :index="item.meta.fullPath">
@@ -28,4 +28,4 @@ defineProps({
   },
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->

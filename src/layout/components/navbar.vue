@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <!-- {{ route.meta }} -->
   <div class="app flex-between-center p-x-10">
     <div class="flex-center-center">
@@ -61,4 +61,4 @@ let { userObj } = toRefs(useUserStore);
   // -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
-</style>
+</style> -->
