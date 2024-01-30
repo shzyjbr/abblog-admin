@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_APP_SERVICE_API,
           changeOrigin: true,
+          // 转发到后台，路径替换为admin
           rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), 'admin'),
         },
       },
