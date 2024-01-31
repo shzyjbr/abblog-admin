@@ -1,58 +1,40 @@
-<template>
-  <div v-show="userStore.isLogin && !$route.meta.isParentView" class="flex h-full w-full">
-    <!-- 侧边栏菜单 -->
-    <sidebar v-if="isShowMenu" id="sidebar" class="w-200" />
-    <div class="flex-1">
-      <div id="top">
-        <!-- 顶部导航栏 -->
-        <navbar class="h-50" />
-        <!-- Tabs标签页 -->
-        <div :style="{ width: appMainWidth + 'px' }">
-          <tabs-view />
-        </div>
-      </div>
-      <!-- 主页面 -->
-      <div :style="{ height: appMainHeight + 'px', width: appMainWidth + 'px' }">
-        <app-main class="app-main p-10" />
-      </div>
-    </div>
-  </div>
-  <div v-if="!userStore.isLogin" class="h-full">
-    <router-view />
-  </div>
-</template>
+<template>主界面</template>
 
 <script setup>
 // import sidebar from './components/sidebar.vue';
 // import navbar from './components/navbar.vue';
 // import appMain from './components/app-main.vue';
 // import tabsView from './components/tabs-view.vue';
-import { useCounterStore } from '@/store/user';
-const userStore = useCounterStore();
-import { getCurrentInstance, ref, toRefs, onMounted, onUpdated, watch } from 'vue';
-
+import useStore from '@/store';
+const { user } = useStore();
+import { getCurrentInstance, ref, toRefs, onMounted, onUpdated, watch, onActivated, watchEffect } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const proxy = getCurrentInstance();
+console.log(router);
 let appMainWidth = ref(0);
 let appMainHeight = ref(0);
 
-// onMounted(() => {
-//   // 窗口宽高变化时触发 -- tips：window.onresize只能在项目内触发1次
-//   window.onresize = function windowResize() {
-//     calWidthAndHeight();
-//   };
-// });
+const { isLogin } = storeToRefs(user);
+
+onMounted(() => {
+  console.log('onMount');
+  if (!user.isLogin) {
+    router.push('/login');
+  }
+});
+
+watchEffect(() => {
+  if (!user.isLogin) {
+    router.push('/login');
+  }
+});
 
 // // 注册一个回调函数，在组件因为响应式状态变更而更新其 DOM 树之后调用。
 // onUpdated(() => {
 //   calWidthAndHeight();
 // });
-
-// watch(
-//   [isLogin, isShowMenu],
-//   (newValue) => {
-//     calWidthAndHeight();
-//   },
-//   { immediate: false, deep: true },
-// );
 
 // function calWidthAndHeight() {
 //   let sidebarW = document.getElementById('sidebar').offsetWidth;

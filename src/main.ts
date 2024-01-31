@@ -21,7 +21,18 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 // pinia
 import { createPinia } from 'pinia';
+// pinia持久化
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 
+// 配置全局api
+import api from '@/api';
+app.config.globalProperties.$api = api;
+
+import store from '@/store';
+app.config.globalProperties.$store = store;
+
+app.config.globalProperties.$router = router;
 app.mount('#app');

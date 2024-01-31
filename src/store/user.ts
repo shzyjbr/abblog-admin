@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia';
 import { GlobalState } from '@/store/interface';
 
-export const useCounterStore = defineStore('user', {
+const useCounterStore = defineStore('user', {
+  // 开启持久化
+  persist: true,
   state() {
     return {
       userInfo: {},
@@ -21,7 +23,10 @@ export const useCounterStore = defineStore('user', {
     saveUserState(userState: GlobalState) {
       this.userInfo = userState.userInfo;
       this.token = userState.token;
+      console.log('saveUserState, success');
       this.isLogin = true;
     },
   },
 });
+
+export default useCounterStore;

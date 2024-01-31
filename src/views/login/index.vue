@@ -27,10 +27,11 @@ import { Login } from '@/api/interface';
 import { loginApi } from '@/api/modules/login';
 import { reactive } from 'vue';
 import { ElMessage } from 'element-plus';
-import { useCounterStore } from '@/store/user';
-import { userInfo } from 'os';
+import useStore from '@/store';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
-const userStore = useCounterStore();
+const { user } = useStore();
 
 function validatePassword(rule, value, callback) {
   if (!value || value.length < 6) {
@@ -60,12 +61,14 @@ const onFinish = async (loginForm: Login.ReqLoginForm) => {
       ElMessage.success('登录成功');
       // 保存登录信息
       let userState = { token: '1234567', userInfo: result };
-      userStore.saveUserState(userState);
+      user.saveUserState(userState);
+      console.log(user.isLogin);
+      router.push('/');
     } else {
       ElMessage.success('登录失败:' + status?.msg);
     }
   } finally {
-    console.log('');
+    console.log('finally');
   }
 };
 </script>

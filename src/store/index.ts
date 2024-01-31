@@ -1,7 +1,7 @@
-// import {useCounterStore} from './user';
+import useCounterStore from './user';
 
-// export default function useStore() {
-//   return {
-//     user: useUserStore(),
-//   };
-// }
+export default function useStore() {
+  return {
+    user: useCounterStore(),
+  };
+}
