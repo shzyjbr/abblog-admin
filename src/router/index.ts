@@ -8,6 +8,24 @@ export const constantRoutes = [
     meta: {
       isParentView: true,
     },
+    children: [
+      {
+        path: '',
+        name: 'dashboard',
+        component: () => import('@/layout/components/dashboard/index.vue'),
+        meta: {
+          isParentView: false,
+        },
+      },
+      {
+        path: '/user',
+        name: 'user',
+        component: () => import('@/layout/components/user/index.vue'),
+        meta: {
+          isParentView: false,
+        },
+      },
+    ],
   },
   {
     path: '/login',
